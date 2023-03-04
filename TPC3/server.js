@@ -1,8 +1,7 @@
 var http = require('http')
-var url = require('url')
 var fs = require('fs')
 const axios = require('axios')
-var mypages = require('/home/joao/EngWeb2023/TPC3/mypages.js')
+var mypages = require('./mypages.js')
 
 
 function get_Date(){
@@ -67,7 +66,31 @@ var server = http.createServer(function(req, res){ //request, response
         res.end()
     }) 
     }
-    else if(req.url.match("/w3\.css$")){
+    else if(req.url=="/pessoas/sexo"){
+        axios.get('http://localhost:3000/pessoas').then(function (resp){
+            var pessoas= resp.data
+            res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+            res.write(mypages.genSexoPage(pessoas))
+            res.end()
+        })
+        .catch(erro => { //anonymous function
+        console.log(erro)
+        res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+        res.end()
+    }) 
+    }else if(req.url=="/pessoas/desportos"){
+        axios.get('http://localhost:3000/pessoas').then(function (resp){
+            var pessoas= resp.data
+            res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+            res.write(mypages.genDesportosPage(pessoas))
+            res.end()
+        })
+        .catch(erro => { //anonymous function
+        console.log(erro)
+        res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+        res.end()
+    }) 
+    }else if(req.url.match("\/w3\.css$")){
         //console.log("entrou")
         fs.readFile("w3.css",function(err,data){
             if(err){

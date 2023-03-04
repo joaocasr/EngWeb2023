@@ -8,6 +8,23 @@ exports.genMainPage = function(lista,data){
             <link href="w3.css" rel="stylesheet" type="text/css"/>
         </head>
         <body>
+        <header class="w3-container w3-light-grey">
+        <h3>Menu</h3>
+        </header>
+        <div class="w3-container w3-light-grey">
+            <button>
+                <a href="/pessoasOrdenadas">Ordenar pessoas</a>
+            </button>  
+            <button>
+                <a href="/pessoas/top10profissoes">Top 10 Profissões</a>
+            </button>
+            <button>
+                <a href="/pessoas/sexo">Distribuição por género</a>
+            </button>  
+            <button>
+                <a href="/pessoas/desportos">Distribuição por desportos</a>
+            </button>  
+        </div>
         <header class="w3-container w3-blue">
             <h1>Tabela de registos</h1>
         </header>
@@ -131,8 +148,15 @@ exports.genTopPage = function(pessoas){
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="w3.css"/>
+        <title>Top de profissões</title>
     </head>
     <body>
+    <header class="w3-container w3-light-grey">
+    <h3>Menu</h3>
+    </header>
+    <div class="w3-container w3-light-grey">
+        <a href="/pessoas">[Home page]</a>
+    </div>
     <h1>Top 10 Profissões</h1>
     <table class="w3-table w3-striped w3-hoverable">
         <th>Profissão</th>
@@ -166,9 +190,96 @@ exports.genTopPage = function(pessoas){
     return pagHTML
 }
 
+exports.genSexoPage = function(pessoas){
+    sexo = {"Masculino":0,"Feminino":0}
+    for (let p =0; p< pessoas.length;p+=1){
+        if(pessoas[p].sexo=='masculino') sexo['Masculino']+=1
+        if(pessoas[p].sexo=='feminino') sexo['Feminino']+=1
+    }
+
+    pagHTML=`
+    <!DOCTYPE HTML>
+    <html>
+            <head>
+                <meta charset="utf-8"/>
+                <link rel="stylesheet" type="text/css" href="w3.css"/>
+                <title>Distribuição por Sexo</title>
+            </head>
+    <body>
+        <header class="w3-container w3-light-grey">
+            <h3>Menu</h3>
+        </header>
+        <div class="w3-container w3-light-grey">
+            <a href="/pessoas">[Home page]</a>
+        </div>
+        <h1>Distribuição por sexo</h1>
+        <table class="w3-table w3-striped w3-border">
+        <tr>
+            <th>Género</th>
+            <th>Frequência</th>
+        </tr>
+        <tr>
+            <td>Masculino</td>
+            <td>${sexo['Masculino']}</td>
+        <tr> 
+        <tr>
+            <td>Feminino</td>
+            <td>${sexo['Feminino']}</td>
+        <tr>
+        </table> 
+    </body>
+    </html>
+    `
+    return pagHTML
+}
+
+exports.genDesportosPage = function(pessoas){
+    sports = {}
+    for (let p =0; p< pessoas.length;p+=1){
+        for(let d=0; d<pessoas[p].desportos.length;d+=1){
+            if(!(pessoas[p].desportos[d] in sports)) sports[pessoas[p].desportos[d]]=1
+            else sports[pessoas[p].desportos[d]]+=1
+
+        }
+    }
+    pagHTML=`
+    <!DOCTYPE HTML>
+    <html>
+            <head>
+                <meta charset="utf-8"/>
+                <link rel="stylesheet" type="text/css" href="w3.css"/>
+                <title>Distribuição de desportos</title>
+            </head>
+    <body>
+        <header class="w3-container w3-light-grey">
+            <h3>Menu</h3>
+        </header>
+        <div class="w3-container w3-light-grey">
+            <a href="/pessoas">[Home page]</a>
+        </div>
+        <h1>Distribuição por desportos praticados</h1>
+        <table class="w3-table w3-striped w3-border">
+        <tr>
+            <th>Desporto</th>
+            <th>Frequência</th>
+        </tr>`
+        for(const [sport,n] of Object.entries(sports)){
+            pagHTML+=`
+            <tr>
+                <td>${sport}</td>
+                <td>${n}</td>
+            <tr>`
+        }
+        pagHTML+=`
+                </table> 
+            </body>
+        </html>`
+    return pagHTML
+}
+
 //TPC 
 // lista de pessoas 0
 // lista de pessoas ordenadas 1
 // distribuicao por sexo
-// distribuicao por desporte
+// distribuicao por desporto
 // top 10 profissao  
