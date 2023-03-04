@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "axios": "^1.3.4",
+    "g": "^2.0.1",
+    "json-server": "^0.17.2"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "tpc3",
+  "description": "tpc3",
+  "version": "1.0.0",
+  "main": "get_request.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaocasr/EngWeb2023.git#main"
+  },
+  "keywords": [
+    "engenharia",
+    "web",
+    "npm"
+  ],
+  "author": "João Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaocasr/EngWeb2023/issues"
+  },
+  "homepage": "https://github.com/joaocasr/EngWeb2023/tree/main#readme"
+}
