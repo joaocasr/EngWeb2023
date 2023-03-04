@@ -19,6 +19,6 @@ npm install axios
 ````
 
 ### WebAPP de registo de pessoas
-<img src="img/Captura de ecrã de 2023-03-04 12-14-54.png"/>
+<img src="img/Captura de ecrã de 2023-03-04 13-34-59.png"/>
 <img src="img/Captura de ecrã de 2023-03-04 12-15-02.png"/>
 <img src="img/Captura de ecrã de 2023-03-04 12-15-47.png"/>

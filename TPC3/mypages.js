@@ -23,6 +23,9 @@ exports.genMainPage = function(lista,data){
             </button>  
             <button>
                 <a href="/pessoas/desportos">Distribuição por desportos</a>
+            </button>
+            <button>
+                <a href="/pessoas/filter_masculino">Filtrar sexo masculino</a>
             </button>  
         </div>
         <header class="w3-container w3-blue">

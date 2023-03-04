@@ -90,6 +90,18 @@ var server = http.createServer(function(req, res){ //request, response
         res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
         res.end()
     }) 
+    }else if(req.url=="/pessoas/filter_masculino"){
+        axios.get('http://localhost:3000/pessoas?sexo=masculino').then(function (resp){
+            var pessoas= resp.data
+            res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+            res.write(mypages.genMainPage(pessoas))
+            res.end()
+        })
+        .catch(erro => { //anonymous function
+        console.log(erro)
+        res.writeHead(200,{'Content-type':'text/html; charset=utf-8'})
+        res.end()
+    }) 
     }else if(req.url.match("\/w3\.css$")){
         //console.log("entrou")
         fs.readFile("w3.css",function(err,data){
