@@ -1,3 +1,25 @@
+.table1 {
+    padding-left: 100px;
+}
+
+.table2 {
+    margin-top: -123.5%;
+    padding-left: 700px;
+    position: static;
+}
+
+.tables-style{
+    margin-top: 100px;
+}
+
+th{
+    padding-right: 20%;
+}
+
+td{
+    padding:5px;
+}
+
 /* W3.CSS 4.13 June 2019 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */

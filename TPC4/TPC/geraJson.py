@@ -226,7 +226,7 @@ while(i<100):
         geraJson+="""   {
         """
         geraJson+=f"""
-                        "id":"{id}",
+                        "id":"task{i}",
                         "duedate":"{ano}/{month}/{day}",
                         "user":"{user}",
                         "description":"{tarefa}",
@@ -238,7 +238,7 @@ while(i<100):
         geraJson+="""   {
         """
         geraJson+=f"""
-
+                        "id":"task{i}",
                         "duedate":"{ano}/{month}/{day}",
                         "user":"{user}",
                         "description":"{tarefa}",
