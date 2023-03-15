@@ -14,13 +14,7 @@ function staticResource(request){ //metodo que verifica se está a ser pedido um
     if (fs.existsSync('public/')) {
         files = fs.readdirSync('public/')
         //console.log(files)
-         files.forEach(element => {
-            console.log(element)
-            if(element==namefile){
-                console.log("match")
-                return true
-            }
-         });
+        return files.includes(namefile)
     } else {
         console.log("Directory does not exist")
         return false

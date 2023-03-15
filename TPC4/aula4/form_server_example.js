@@ -50,5 +50,16 @@ formServer.listen(7777, ()=>{
     console.log("Server listening on 7777...")
 })
 
+///TPC 
+/**
+ *  uma unica pagina
+ *  4 AREAS (2 horizontais(form insercao -botao post|form edicao- botao put)| 2 verticais(to do - vai ter botao para passar para done| done))
+ *  tarefa:
+ *          duedate:|user:|description:
+ *  1 colecao user(id,nome)
+ *  1 colecao task(duedate,user,description,done)
+
+ a partir de uma especificacao gera uma pagina web express-generator
+*/
 
 

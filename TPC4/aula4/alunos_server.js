@@ -5,8 +5,23 @@
 var http = require('http')
 var axios = require('axios')
 var templates = require('./templates')
-var static = require('./static.js')
+var static = require('./static.js');
+const { parse } = require('querystring');
 
+function collectRequestBodyData(request, callback) {
+    if(request.headers['content-type'] === 'application/x-www-form-urlencoded') {
+        let body = '';
+        request.on('data', chunk => {
+            body += chunk.toString();
+        });
+        request.on('end', () => {
+            callback(parse(body));
+        });
+    }
+    else {
+        callback(null);
+    }
+}
 // Server creation
 
 var alunosServer = http.createServer(function (req, res) {
@@ -57,6 +72,35 @@ var alunosServer = http.createServer(function (req, res) {
                     res.write(templates.studentFormPage(d))
                     res.end('<p>Yet to be done... </p>')
                 }
+                else if(/\/alunos\/edit\/(A|PG)[0-9]+$/i.test(req.url)){
+                    // Get aluno record
+                    var idAluno = req.url.split("/")[3]
+                    axios.get("http://localhost:3000/alunos/" + idAluno)
+                    .then( response => {
+                        let a = response.data
+                        // Add code to render page with the student record
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.end(templates.studentFormEditPage(a,d))
+                    })
+                    .catch(function(erro){
+                        res.writeHead(404, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.end(templates.errorPage(erro,d))
+                    })
+                }
+                else if(/\/alunos\/delete\/(A|PG)[0-9]+$/i.test(req.url)){
+                    var idAluno = req.url.split("/")[3]
+                    axios.delete("http://localhost:3000/alunos/" + idAluno)
+                    .then( response => {
+                        let a = response.data
+                        // Add code to render page with the student record
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.end("<p>Registo apagado</p>")
+                    })
+                    .catch(function(erro){
+                        res.writeHead(404, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.end(templates.errorPage(erro,d))
+                    })
+                }
                 else{
                     res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
                     res.write("<p>" + req.method + " " + req.url + " unsupported on this server.</p>")
@@ -65,9 +109,28 @@ var alunosServer = http.createServer(function (req, res) {
                 break
             case "POST":
                 if(req.url == '/alunos/registo'){
-                    res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                    //res.write(studentFormPage(d))
-                    res.end('<p>Yet to be done... </p>')
+                    collectRequestBodyData(req, result => {
+                        if(result){
+                            axios.post('http://localhost:3000/alunos', result)
+                                .then(resp => {
+                                        var aluno = resp.data
+                                        res.writeHead(201, {'Content-Type': 'text/html;charset=utf-8'})
+                                        res.write(templates.studentPage(aluno,d))   
+                                        res.end()
+                                    })
+                                    .catch(error => {
+                                        console.log('Erro: ' + error);
+                                        res.writeHead(500, {'Content-Type': 'text/html;charset=utf-8'})
+                                        res.write("<p>Unable to insert record...</p>")
+                                        res.end()
+                                    });
+                        }
+                        else{
+                            res.writeHead(201, {'Content-Type': 'text/html;charset=utf-8'})
+                            res.write("<p>Unable to collect data from body...</p>")
+                            res.end()
+                        }
+                    })
                 }
                 else{
                     res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
