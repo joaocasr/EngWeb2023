@@ -41,11 +41,6 @@
       "repositório": "https://github.com/Katilho/EngWeb2023"
     },
     {
-      "id": "A95114",
-      "nome": "Emanuel Lopes Monteiro da Silva",
-      "repositório": "https://github.com/EmanuelsGiT/EngWeb2023"
-    },
-    {
       "id": "A97031",
       "nome": "Miguel Filipe Cidade da Silva",
       "repositório": "https://github.com/MiguelCidadeSilva/EngWeb2023"
@@ -58,7 +53,10 @@
     {
       "id": "A97393",
       "nome": "Gabriela Santos Ferreira da Cunha",
-      "repositório": "https://github.com/gabrielasfc/EngWeb2023"
+      "repositório": "https://github.com/gabrielasfc/EngWeb2023",
+      "tpc2": "0",
+      "tpc3": "0",
+      "tpc4": "0"
     },
     {
       "id": "A96455",
@@ -96,9 +94,6 @@
       "id": "A96794",
       "nome": "Ricardo Alves Oliveira",
       "repositório": "https://github.com/RicAlvesO/EngWeb2023"
-    },
-    {
-      "id": "A97540"
     },
     {
       "id": "A97257",
@@ -181,11 +176,6 @@
       "repositório": "https://github.com/Eduard0Rocha/EngWeb2023.git"
     },
     {
-      "id": "A95844",
-      "nome": "Duarte Gonçalves Parente",
-      "repositório": "https://github.com/duarteparente/EngWeb2023"
-    },
-    {
       "id": "A95522",
       "nome": "José António Alves de Matos Moreira",
       "repositório": "https://github.com/josemoreira15/EngWeb2023"
@@ -261,7 +251,9 @@
     {
       "id": "A97027",
       "nome": "Artur Jorge Castro Leite",
-      "repositório": "https://github.com/ARTurleite6/EngWeb2023"
+      "repositório": "https://github.com/ARTurleite6/EngWeb2023",
+      "tpc1": "0",
+      "tpc3": "0"
     },
     {
       "id": "A96141",
@@ -272,11 +264,6 @@
       "id": "A96561",
       "nome": "Rodrigo Manuel Matos Pereira",
       "repositório": "https://github.com/eivarin/EngWeb2023"
-    },
-    {
-      "id": "A96326",
-      "nome": "Bernard Ambrosio Georges",
-      "repositório": "https://github.com/BernardGeorges/EngWeb2023.gi"
     },
     {
       "id": "A95323",
@@ -290,6 +277,15 @@
       "tpc1": "1",
       "tpc2": "1",
       "tpc3": "1"
+    },
+    {
+      "id": "A972341",
+      "nome": "João Silva",
+      "repositório": "joao.com",
+      "tpc1": "0",
+      "tpc2": "0",
+      "tpc3": "0",
+      "tpc5": "0"
     }
   ]
 }
