@@ -19,3 +19,22 @@ module.exports.getaluno= id =>{
         return error
     })
 }
+
+module.exports.addAluno= a =>{
+    return axios.post('http://localhost:3000/alunos/',a)
+    .then(resp =>{
+        return resp.data
+    })
+    .catch(error=>{
+        return error
+    })
+}
+
+module.exports.updateAluno= a =>{
+    return axios.put('http://localhost:3000/alunos/'+a.id,a)
+    .then(resp=>{
+        return resp.data
+    }).catch(error=>{
+        return error
+    })
+}

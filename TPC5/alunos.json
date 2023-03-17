@@ -78,7 +78,9 @@
     {
       "id": "A97503",
       "nome": "Dinis Gonçalves Estrada",
-      "repositório": "https://github.com/DinisEstrada/EngWeb2023"
+      "repositório": "https://github.com/DinisEstrada/EngWeb2023",
+      "tpc3": "0",
+      "tpc4": "0"
     },
     {
       "id": "A96834",
@@ -96,9 +98,7 @@
       "repositório": "https://github.com/RicAlvesO/EngWeb2023"
     },
     {
-      "id": "A97540",
-      "nome": "Ana Rita Moreira Vaz",
-      "repositório": "https://github.com/ritavaz02/EngWeb2023"
+      "id": "A97540"
     },
     {
       "id": "A97257",
@@ -228,7 +228,10 @@
     {
       "id": "A95354",
       "nome": "Gonçalo Martins dos Santos",
-      "repositório": "https://github.com/goncalosantos3/EngWeb2023"
+      "repositório": "https://github.com/goncalosantos3/EngWeb2023",
+      "tpc1": "0",
+      "tpc3": "0",
+      "tpc5": "0"
     },
     {
       "id": "A96361",
@@ -279,6 +282,14 @@
       "id": "A95323",
       "nome": "Henrique Ribeiro Fernandes",
       "repositório": "https://github.com/0HenriqueFernandes0/EngWeb2023.git"
+    },
+    {
+      "id": "A99999",
+      "nome": "johnny",
+      "repositório": "johnny.com",
+      "tpc1": "1",
+      "tpc2": "1",
+      "tpc3": "1"
     }
   ]
 }
