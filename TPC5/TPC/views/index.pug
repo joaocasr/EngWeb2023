@@ -1,0 +1,101 @@
+extends layout
+
+block content
+  header.w3-container.w3-teal
+    h1 Task Manager              
+  form.w3-container(method="POST" action="add/")
+    fieldset
+      legend Adicionar Tarefa
+      label ID
+      input.w3-input.w3-round(type="text" name="id" readonly value="task"+n)
+      label Duedate
+      input.w3-input.w3-round(type="text" name="duedate")
+      label User
+      input.w3-input.w3-round(type="text" name="user")
+      label Description
+      input.w3-input.w3-round(type="text" name="description")
+      input.w3-input.w3-round(type="hidden" name="done" value="0")
+      br
+      button.w3-btn.w3-purple.w3-mb-2(type="submit") Submeter tarefa
+
+  if !tarefa
+    form.w3-container(method="POST" action="/edit")
+      fieldset
+        legend Editar Tarefa
+        label ID
+        input.w3-input.w3-round(type="text" name="id" value="")
+        label Duedate
+        input.w3-input.w3-round(type="text" value="" name="duedate")
+        label User
+        input.w3-input.w3-round(type="text" value="" name="user")
+        label Description
+        input.w3-input.w3-round(type="text" value="" name="description")
+        label Done
+        input.w3-input.w3-round(type="text" value="" name="done")
+        br
+        button.w3-btn.w3-purple.w3-mb-2(type="submit") Editar tarefa
+  else
+    form.w3-container(method="POST" action="/edit")
+      fieldset
+        legend Editar Tarefa
+        label ID
+        input.w3-input.w3-round(type="text" name="id" value=tarefa.id)
+        label Duedate
+        input.w3-input.w3-round(type="text" value=tarefa.duedate name="duedate")
+        label User
+        input.w3-input.w3-round(type="text" value=tarefa.user name="user")
+        label Description
+        input.w3-input.w3-round(type="text" value=tarefa.description name="description")
+        label Done
+        input.w3-input.w3-round(type="text" value=tarefa.done name="done")
+        br
+        button.w3-btn.w3-purple.w3-mb-2(type="submit") Editar tarefa
+            
+            
+  .tables-style
+    .table1
+      table.w3-hoverable
+        tr
+          th To_Do
+          th User
+          th Description
+          th Duedate
+          th Done?
+        each task in list 
+          if task.done == "0"
+            form.w3-container(method="POST" action="/edit")
+              tr
+                td
+                  label 
+                    a(href="/tasks/"+task.id) #{task.id}
+                  #{task.description}
+                  input(type = "hidden" name="id" value=task.id)
+                td
+                  label
+                    b #{task.user}
+                  input(type = "hidden" value=task.user name="user")
+                td
+                  label
+                    b #{task.description}     
+                  input(type = "hidden" value=task.description name="description")
+                td
+                  label 
+                    b #{task.duedate}
+                  input(type = "hidden" value=task.duedate name="duedate")
+                  input(type = "hidden" value="1" name="done")
+                td
+                  button.w3-btn.w3-purple.w3-mb-2(type="submit") YES 
+
+    .table2
+      table.w3-hoverable
+        tr 
+          th Tasks Done
+        each task in list
+          if task.done=="1" 
+            tr
+              td
+                label #{task.id}: 
+                  b #{task.description} 
+                  b (#{task.user})         
+              td
+                input.w3-check(type="checkbox" name=task.id value=task.done checked onclick="return false;")

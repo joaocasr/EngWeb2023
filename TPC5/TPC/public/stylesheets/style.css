@@ -1,0 +1,21 @@
+.table1 {
+  padding-left: 200px;
+}
+
+.table2 {
+  margin-top: -150%;
+  padding-left: 800px;
+  position: static;
+}
+
+.tables-style{
+  margin-top: 100px;
+}
+
+th{
+  padding-right: 20%;
+}
+
+td{
+  padding:5px;
+}
