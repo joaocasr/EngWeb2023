@@ -142,10 +142,10 @@
     },
     {
       "id": "task20",
-      "duedate": "2024/2/12",
       "user": "user27",
       "description": "Smuggle",
-      "done": "0"
+      "duedate": "2024/2/12",
+      "done": "1"
     },
     {
       "id": "task21",
@@ -754,6 +754,13 @@
       "duedate": "2023/05/19",
       "user": "Lucas",
       "description": "Celebrate anniversary",
+      "done": "0"
+    },
+    {
+      "id": "task108",
+      "duedate": "2023/04/20",
+      "user": "Anne",
+      "description": "Existing",
       "done": "0"
     }
   ],
