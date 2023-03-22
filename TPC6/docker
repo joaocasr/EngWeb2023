@@ -1,0 +1,8 @@
+docker cp alunos.json monho6:/tmp/alunos.json
+docker exec mongo6 monhoimport -d eNGWEB2923 -C students -- file /tmp/alunos.json -jsonArray
+
+# sudo docker run --name mongo_example -d bash
+# docker exec -it <container-name> mongo
+# sudo docker run -d -it -p 27017:27017 mongo
+# docker cp xxx.json <container-name-or-id>:/tmp/xxx.json
+# docker exec <container-name-or-id> mongoimport -d <db-name> -c <c-name> --file /tmp/xxx.json
