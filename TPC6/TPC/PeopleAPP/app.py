@@ -1,6 +1,5 @@
 import requests
 import re
-import json
 
 API_URL = "http://localhost:7777/"
 
@@ -12,6 +11,7 @@ while(True):
         print("db.pessoas.find() - Obter listagem de pessoas")
         print("db.pessoas.findOne({_id:'p0'}) - Obter pessoa com id p0")
         print("db.pessoas.create({_id:'p0'}) - Criar registo da pessoa com id p0")
+        print("db.pessoas.delete({_id:'p0'}) - Remover registo da pessoa com id p0")
     if(funcionalidade=="db.pessoas.find()"):
         URL_REQUEST=API_URL+"people"
         r=requests.get(URL_REQUEST)
@@ -38,6 +38,3 @@ while(True):
     if(r!=None and r.status_code!=200):
         print("status: "+str(r.status_code))        
 
-
-
-#print(people[0])
